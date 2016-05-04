@@ -5,7 +5,7 @@ http.createServer(function (request, response) {
   response.write('\n');
   response.end();
 
-}).listen(8080, '96.118.164.158');
+}).listen(8080);
 console.log('server running at http://96.118.164.158:8080/');
 
 
