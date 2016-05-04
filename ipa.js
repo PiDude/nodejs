@@ -5,10 +5,6 @@ var interfaces = os.networkInterfaces();
 console.log(interfaces);
 console.log('\n');
 
-
-
-
-
 var addresses = [];
 
 for (var k in interfaces)     {

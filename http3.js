@@ -1,4 +1,27 @@
+
+// include system modules
+
+var os = require('os');
 var http = require('http');
+
+// routine to find IP address of VM
+
+var interfaces = os.networkInterfaces();
+var addresses = [];
+for (var k in interfaces)   {
+  for (var k2 in interfaces[k])   {
+    var address = interfaces[k][k2];
+    if (address.family === 'IPv4' && !address.internal)   {
+      addresses.push(address.address);
+    }
+  }
+}
+
+
+
+
+//  the hello world server
+
 http.createServer(function (request, response) {
   response.writeHead(200, {'Content-Type': 'text/plain'});
   response.write('Hello World!! \n');
@@ -6,6 +29,9 @@ http.createServer(function (request, response) {
   response.end();
 
 }).listen(8080);
-console.log('server running at http://96.118.164.158:8080/');
+console.log(addresses);
+console.log('use port 8080');
+
+
 
 
