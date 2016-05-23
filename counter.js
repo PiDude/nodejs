@@ -31,6 +31,7 @@ http.createServer(function (request, response) {
   response.end();
 }).listen(8080);
 
-console.log('server started on %d:8080', addresses);
-console.log(addresses);
+console.log('server started on %s:8080', addresses);
+
+
 

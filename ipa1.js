@@ -17,30 +17,47 @@ console.log();
 console.log(cpu);
 console.log();
 
-var interfaces = os.networkInterfaces();
+var interfaces = os.networkInterfaces();   // puts info into array interfaces
 
 console.log(interfaces);
 
-console.log('now one by one.....');
-console.log(interfaces[0]);
-console.log(interfaces[1][1]);
-console.log(interfaces[2]);
-console.log(interfaces[3]);
-
-console.log('\n');
-
-var addresses = [];
+var addresses = [];       // will ultimately hold the public IP address
 
 for (var k in interfaces)     {
+
   for (var k2 in interfaces[k])   {
+    console.log('the value of k is: %s', k);      // %s since is a string.
+    console.log('the value of k2 is: %s', k2);    // %d since is an integer.
+
+    console.log(interfaces[k]);
+    console.log(interfaces[k][k2]);
 
     var address = interfaces[k][k2];
+    console.log(address);
     
     if (address.family ==='IPv4' && !address.internal) {
-      addresses.push(address.address);
+      addresses.push(address.address);            // .push is insert as last item.
     }
   }
 }
 
 console.log(addresses);
+
+console.log('going to new stuff....');
+console.log();
+
+interfaces = os.networkInterfaces();
+
+naddresses = [];
+
+for (var n in interfaces)  {
+  for (var n2 in interfaces[n])  {
+    var naddress = interfaces[n][n2];
+    if (naddress.family ==='IPv4' && naddress.internal)  {
+      naddresses.push(naddress.address);
+    }
+  }
+}
+console.log(naddresses);
+
 
