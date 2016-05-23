@@ -1,8 +1,12 @@
 
 // include system modules
 
-var os = require('os');
-var http = require('http');
+var os = require('os');       //  access to os calls
+var http = require('http');   //  access to http functions
+var fs = require('fs');       //  access to file system
+var path = require('path');   //  handle file paths
+var mime = require('mime');   //  handle MIME messages
+
 
 // routine to find IP address of VM
 
